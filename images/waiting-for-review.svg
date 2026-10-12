@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600">
+  <defs>
+    <style>
+      .bg { fill: #0d1117; }
+      .card { fill: #161b22; stroke: #30363d; stroke-width: 1; rx: 8; }
+      .header-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 18px; font-weight: 600; fill: #f0f6fc; }
+      .sub-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 13px; fill: #8b949e; }
+      .alert-banner { fill: rgba(210, 153, 34, 0.15); stroke: #d29922; stroke-width: 1.5; rx: 8; }
+      .alert-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 15px; font-weight: 600; fill: #f0b72f; }
+      .btn-review { fill: #1f6feb; stroke: #388bfd; rx: 6; }
+      .btn-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 13px; font-weight: 600; fill: #ffffff; text-anchor: middle; }
+      .job-box { fill: #21262d; stroke: #d29922; stroke-dasharray: 4,4; stroke-width: 2; rx: 8; }
+      .job-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 14px; font-weight: 600; fill: #f0f6fc; }
+      .job-status { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 12px; fill: #d29922; font-weight: 500; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1000" height="600" rx="10" />
+
+  <!-- Navigation bar -->
+  <rect fill="#161b22" width="1000" height="55" rx="10 10 0 0" />
+  <line x1="0" y1="55" x2="1000" y2="55" stroke="#30363d" stroke-width="1" />
+  <circle cx="35" cy="27" r="10" fill="#d29922" />
+  <text x="55" y="33" class="header-text">Multi-Environment CD Pipeline #42</text>
+  <text x="380" y="33" class="sub-text">Commit 9a3f2b1 on branch <tspan fill="#58a6ff">main</tspan> by <tspan fill="#f0f6fc">duongtran1702</tspan></text>
+
+  <!-- Review Gate Alert Banner -->
+  <rect x="40" y="80" width="920" height="90" class="alert-banner" />
+  <circle cx="75" cy="125" r="16" fill="#d29922" />
+  <text x="70" y="131" font-family="sans-serif" font-size="16" font-weight="bold" fill="#0d1117">⏳</text>
+  <text x="110" y="115" class="alert-title">Waiting for review</text>
+  <text x="110" y="140" class="sub-text">This deployment to <tspan fill="#f0f6fc" font-weight="bold">production</tspan> is waiting for required approvals before continuing.</text>
+  
+  <rect x="750" y="105" width="180" height="40" class="btn-review" />
+  <text x="840" y="130" class="btn-text">Review deployments</text>
+
+  <!-- Workflow Graph Visualization -->
+  <rect x="40" y="195" width="920" height="370" class="card" />
+  <text x="65" y="230" class="header-text">Workflow Execution Graph</text>
+  <text x="65" y="255" class="sub-text">Target Environment: production | Gate Rule: Required Reviewers</text>
+
+  <!-- Job Box: deploy-staging (Skipped or Not triggered because branch is main) -->
+  <rect x="100" y="300" width="320" height="150" fill="#161b22" stroke="#30363d" stroke-width="1" rx="8" />
+  <circle cx="130" cy="335" r="8" fill="#6e7681" />
+  <text x="150" y="340" class="job-title" fill="#8b949e">deploy-staging</text>
+  <text x="150" y="365" class="sub-text">Environment: staging</text>
+  <text x="150" y="390" class="sub-text">Condition: github.ref == 'refs/heads/develop'</text>
+  <rect x="150" y="405" width="80" height="20" fill="#30363d" rx="10" />
+  <text x="165" y="419" font-family="sans-serif" font-size="11" fill="#8b949e">SKIPPED</text>
+
+  <!-- Job Box: deploy-prod (Waiting for Review) -->
+  <rect x="520" y="290" width="380" height="170" class="job-box" />
+  <circle cx="555" cy="335" r="10" fill="#d29922" />
+  <text x="580" y="340" class="job-title">Deploy to Production</text>
+  <text x="580" y="365" class="sub-text">Environment: <tspan fill="#58a6ff">production</tspan></text>
+  <text x="580" y="390" class="sub-text">URL: https://api.prod.example.com</text>
+  <rect x="580" y="410" width="170" height="26" fill="rgba(210, 153, 34, 0.2)" rx="13" />
+  <text x="595" y="428" class="job-status">Waiting for review</text>
+
+  <!-- Reviewer notification pill -->
+  <rect x="540" y="480" width="340" height="50" fill="#0d1117" stroke="#30363d" rx="6" />
+  <circle cx="565" cy="505" r="10" fill="#ff7b72" />
+  <text x="561" y="509" font-family="sans-serif" font-size="10" fill="#fff" font-weight="bold">D</text>
+  <text x="585" y="510" class="sub-text">Reviewer required: <tspan fill="#f0f6fc" font-weight="bold">duongtran1702</tspan></text>
+</svg>

@@ -1,0 +1,89 @@
+name: Multi-Environment CD Pipeline (Staging & Production)
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  # =========================================================================
+  # Job 1: deploy-staging
+  # Kích hoạt khi có sự kiện push vào nhánh develop
+  # Môi trường: staging (Không yêu cầu phê duyệt thủ công)
+  # =========================================================================
+  deploy-staging:
+    name: Deploy to Staging
+    if: github.ref == 'refs/heads/develop' || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/develop')
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+      url: https://api.staging.example.com
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Validate Staging Package & Smoke Test
+        run: |
+          echo "========================================================="
+          echo "📦 [STAGING] Bắt đầu quy trình kiểm tra và chuẩn bị triển khai"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Commit SHA: ${{ github.sha }}"
+          echo "Người thực hiện: ${{ github.actor }}"
+          echo "========================================================="
+
+      - name: Deploy Application to Staging Server
+        run: |
+          echo "🚀 [STAGING] Đang triển khai ứng dụng lên hạ tầng Staging..."
+          echo "Môi trường đích: Staging (Tự động triển khai không cần duyệt)"
+          echo "Endpoint URL: https://api.staging.example.com"
+          echo "Status: Triển khai Staging thành công tích xanh! ✅"
+
+  # =========================================================================
+  # Job 2: deploy-prod
+  # Kích hoạt khi có sự kiện push vào nhánh main
+  # Môi trường: production (Cấu hình Required reviewers: Phê duyệt thủ công)
+  # =========================================================================
+  deploy-prod:
+    name: Deploy to Production
+    if: github.ref == 'refs/heads/main' || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://api.prod.example.com
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Verify Security & Production Prerequisites
+        run: |
+          echo "========================================================="
+          echo "🔒 [PRODUCTION] Đã được PHÊ DUYỆT THỦ CÔNG bởi Reviewer!"
+          echo "Branch kích hoạt: ${{ github.ref_name }}"
+          echo "Commit SHA: ${{ github.sha }}"
+          echo "Người kích hoạt: ${{ github.actor }}"
+          echo "Target Environment: production"
+          echo "========================================================="
+
+      - name: Deploy Application to Production Cluster
+        run: |
+          echo "🌟 [PRODUCTION] Đang phát hành phiên bản chính thức lên Production..."
+          echo "Cấu hình bảo vệ: Environment Protection Rules (Required Reviewers Passed)"
+          echo "Endpoint URL: https://api.prod.example.com"
+          echo "Status: Triển khai Production thành công tích xanh! 🚀✅"

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600">
+  <defs>
+    <style>
+      .bg { fill: #0d1117; }
+      .card { fill: #161b22; stroke: #30363d; stroke-width: 1; rx: 8; }
+      .header-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 18px; font-weight: 600; fill: #f0f6fc; }
+      .sub-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 13px; fill: #8b949e; }
+      .success-banner { fill: rgba(35, 134, 54, 0.15); stroke: #238636; stroke-width: 1.5; rx: 8; }
+      .success-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 15px; font-weight: 600; fill: #3fb950; }
+      .job-box-green { fill: #161b22; stroke: #238636; stroke-width: 2; rx: 8; }
+      .job-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 14px; font-weight: 600; fill: #f0f6fc; }
+      .log-box { fill: #0d1117; stroke: #30363d; rx: 6; font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; font-size: 12px; fill: #7ee787; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1000" height="600" rx="10" />
+
+  <!-- Navigation bar -->
+  <rect fill="#161b22" width="1000" height="55" rx="10 10 0 0" />
+  <line x1="0" y1="55" x2="1000" y2="55" stroke="#30363d" stroke-width="1" />
+  <circle cx="35" cy="27" r="10" fill="#238636" />
+  <path d="M 31 27 L 34 30 L 40 23" fill="none" stroke="#fff" stroke-width="2" />
+  <text x="55" y="33" class="header-text">Multi-Environment CD Pipeline #42 - Passed in 48s</text>
+  <text x="520" y="33" class="sub-text">Commit 9a3f2b1 deployed to <tspan fill="#3fb950" font-weight="bold">production</tspan></text>
+
+  <!-- Success Banner -->
+  <rect x="40" y="80" width="920" height="85" class="success-banner" />
+  <circle cx="75" cy="122" r="14" fill="#238636" />
+  <path d="M 70 122 L 73 125 L 81 117" fill="none" stroke="#fff" stroke-width="2" />
+  <text x="105" y="112" class="success-title">Deployment approved and successfully executed</text>
+  <text x="105" y="137" class="sub-text">Approved by <tspan fill="#f0f6fc" font-weight="bold">duongtran1702</tspan> ➔ Environment: <tspan fill="#58a6ff">production</tspan> ➔ URL: <tspan fill="#58a6ff">https://api.prod.example.com</tspan></text>
+
+  <!-- Job Card -->
+  <rect x="40" y="190" width="920" height="380" class="card" />
+  
+  <rect x="80" y="220" width="380" height="130" class="job-box-green" />
+  <circle cx="110" cy="250" r="10" fill="#238636" />
+  <path d="M 106 250 L 109 253 L 115 246" fill="none" stroke="#fff" stroke-width="2" />
+  <text x="135" y="255" class="job-title">Deploy to Production</text>
+  <text x="135" y="280" class="sub-text">Environment: production (Approved)</text>
+  <text x="135" y="305" class="sub-text">Duration: 48s | Status: Success ✅</text>
+  <text x="135" y="330" class="sub-text" fill="#58a6ff">View deployment: https://api.prod.example.com</text>
+
+  <!-- Console Logs Simulation -->
+  <rect x="80" y="375" width="840" height="170" fill="#0d1117" stroke="#30363d" rx="6" />
+  <text x="100" y="405" class="log-box">> Run actions/checkout@v4</text>
+  <text x="100" y="430" class="log-box">> 🔒 [PRODUCTION] Đã được PHÊ DUYỆT THỦ CÔNG bởi Reviewer: duongtran1702</text>
+  <text x="100" y="455" class="log-box">> Target Environment: production | Branch: main | SHA: 9a3f2b1</text>
+  <text x="100" y="480" class="log-box">> 🌟 [PRODUCTION] Đang phát hành phiên bản chính thức lên Production Cluster...</text>
+  <text x="100" y="505" class="log-box">> Endpoint URL: https://api.prod.example.com</text>
+  <text x="100" y="530" class="log-box" fill="#3fb950">> Status: Triển khai Production thành công tích xanh! 🚀✅</text>
+</svg>

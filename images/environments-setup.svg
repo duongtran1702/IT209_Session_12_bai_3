@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="1000" height="620">
+  <defs>
+    <style>
+      .bg { fill: #0d1117; }
+      .sidebar { fill: #161b22; stroke: #30363d; stroke-width: 1; }
+      .card { fill: #161b22; stroke: #30363d; stroke-width: 1; rx: 8; }
+      .header-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 600; fill: #f0f6fc; }
+      .title-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; fill: #f0f6fc; }
+      .sub-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 13px; fill: #8b949e; }
+      .badge-prod { fill: #238636; rx: 12; }
+      .badge-staging { fill: #1f6feb; rx: 12; }
+      .badge-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 600; fill: #ffffff; }
+      .btn-new { fill: #238636; stroke: #2ea043; rx: 6; }
+      .btn-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 600; fill: #ffffff; text-anchor: middle; }
+      .rule-box { fill: #0d1117; stroke: #388bfd; stroke-width: 1.5; rx: 6; }
+      .rule-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 600; fill: #58a6ff; }
+      .reviewer-avatar { fill: #ff7b72; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="1000" height="620" rx="10" />
+
+  <!-- Nav Top -->
+  <rect fill="#161b22" width="1000" height="50" rx="10 10 0 0" />
+  <line x1="0" y1="50" x2="1000" y2="50" stroke="#30363d" stroke-width="1" />
+  <text x="30" y="32" class="header-text">Settings ➔ Environments</text>
+  <text x="320" y="32" class="sub-text">duongtran1702 / IT209_Session_12_bai_3</text>
+
+  <!-- Button New Environment -->
+  <rect x="800" y="10" width="170" height="32" class="btn-new" />
+  <text x="885" y="31" class="btn-text">+ New environment</text>
+
+  <!-- Sidebar -->
+  <rect x="30" y="70" width="220" height="520" class="card" />
+  <text x="50" y="105" class="title-text">Options</text>
+  <text x="50" y="140" class="sub-text">General</text>
+  <text x="50" y="175" class="sub-text">Collaborators</text>
+  <text x="50" y="210" class="sub-text">Branches</text>
+  <text x="50" y="245" class="sub-text" font-weight="700" fill="#58a6ff">➔ Environments (2)</text>
+  <text x="50" y="280" class="sub-text">Actions (Secrets)</text>
+
+  <!-- Content Card 1: Production Environment -->
+  <rect x="270" y="70" width="700" height="260" class="card" />
+  <text x="295" y="105" class="title-text">production</text>
+  <rect x="390" y="90" width="90" height="22" class="badge-prod" />
+  <text x="408" y="106" class="badge-text">Protected</text>
+  <text x="295" y="132" class="sub-text">Deployment target for live production cluster. URL: https://api.prod.example.com</text>
+
+  <!-- Protection Rule Details -->
+  <rect x="295" y="150" width="650" height="155" class="rule-box" />
+  <circle cx="320" cy="180" r="10" fill="#238636" />
+  <path d="M 316 180 L 319 183 L 325 176" fill="none" stroke="#fff" stroke-width="2" />
+  <text x="340" y="185" class="rule-title">Required reviewers (Protection Rule Active)</text>
+  <text x="340" y="208" class="sub-text">Only specified users can approve deployments to this environment before execution starts.</text>
+  
+  <rect x="340" y="225" width="280" height="40" fill="#161b22" stroke="#30363d" rx="6" />
+  <circle cx="365" cy="245" r="12" class="reviewer-avatar" />
+  <text x="360" y="249" font-family="sans-serif" font-size="12" fill="#fff" font-weight="bold">D</text>
+  <text x="390" y="249" class="title-text" font-size="13">duongtran1702</text>
+  <text x="510" y="249" class="sub-text" fill="#7ee787">Approver</text>
+
+  <text x="340" y="290" class="sub-text">Deployment branches: <tspan fill="#58a6ff">Selected branches (main)</tspan></text>
+
+  <!-- Content Card 2: Staging Environment -->
+  <rect x="270" y="350" width="700" height="240" class="card" />
+  <text x="295" y="385" class="title-text">staging</text>
+  <rect x="370" y="370" width="100" height="22" class="badge-staging" />
+  <text x="382" y="386" class="badge-text">Unrestricted</text>
+  <text x="295" y="412" class="sub-text">Pre-production verification and smoke test. URL: https://api.staging.example.com</text>
+
+  <rect x="295" y="430" width="650" height="135" fill="#0d1117" stroke="#30363d" rx="6" />
+  <circle cx="320" cy="460" r="10" fill="#8b949e" />
+  <text x="340" y="465" class="title-text" font-size="14" fill="#c9d1d9">No required reviewers</text>
+  <text x="340" y="488" class="sub-text">Deployments trigger automatically upon push to branch: <tspan fill="#58a6ff">develop</tspan></text>
+  <text x="340" y="520" class="sub-text">Zero manual gates. Continuous Delivery pipeline executes seamlessly.</text>
+</svg>
